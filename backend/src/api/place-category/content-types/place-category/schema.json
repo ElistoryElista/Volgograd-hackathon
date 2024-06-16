@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "place_categories",
+  "info": {
+    "singularName": "place-category",
+    "pluralName": "place-categories",
+    "displayName": "PlaceCategory",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "place_types": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::place-type.place-type",
+      "mappedBy": "place_category"
+    },
+    "place_tags": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::place-tag.place-tag",
+      "mappedBy": "place_categories"
+    },
+    "places": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::place.place",
+      "mappedBy": "category"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "kind": "collectionType",
+  "collectionName": "routes",
+  "info": {
+    "singularName": "route",
+    "pluralName": "routes",
+    "displayName": "route",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "route_link": {
+      "type": "text"
+    },
+    "type": {
+      "type": "string",
+      "required": true
+    },
+    "duration": {
+      "type": "integer",
+      "required": true
+    },
+    "places": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::place.place"
+    },
+    "polyline": {
+      "type": "text",
+      "required": true
+    },
+    "number": {
+      "required": true,
+      "max": 33,
+      "min": 11,
+      "type": "integer"
+    },
+    "descriptions": {
+      "displayName": "descriptions",
+      "type": "component",
+      "repeatable": true,
+      "component": "descriptions.descriptions",
+      "required": true
+    },
+    "center_latitude": {
+      "type": "float"
+    },
+    "center_longitude": {
+      "type": "float"
+    },
+    "zoom": {
+      "type": "integer"
+    }
+  }
+}

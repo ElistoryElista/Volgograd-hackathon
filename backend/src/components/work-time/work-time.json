@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_work_time_work_times",
+  "info": {
+    "displayName": "work_time",
+    "icon": "clock"
+  },
+  "options": {},
+  "attributes": {
+    "start": {
+      "type": "time",
+      "required": true
+    },
+    "end": {
+      "type": "time",
+      "required": true
+    }
+  }
+}

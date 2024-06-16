@@ -1,0 +1,7 @@
+---
+
+- hosts: prod-webserver
+  remote_user: root
+  roles:
+
+    - role: prod-web-server

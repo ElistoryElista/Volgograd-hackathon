@@ -1,0 +1,56 @@
+{
+  "kind": "collectionType",
+  "collectionName": "incidents",
+  "info": {
+    "singularName": "incident",
+    "pluralName": "incidents",
+    "displayName": "Incident",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "descriptions": {
+      "type": "text",
+      "required": true
+    },
+    "latitude": {
+      "type": "float",
+      "required": true
+    },
+    "longitude": {
+      "type": "float",
+      "required": true
+    },
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "ремонтные работы",
+        "не работает светофор",
+        "не актуальная информация",
+        "нет проезда/прохода",
+        "высокая преграда",
+        "крутой склон",
+        "пробка"
+      ],
+      "required": true,
+      "default": "не актуальная информация"
+    },
+    "when_delete": {
+      "type": "datetime"
+    }
+  }
+}

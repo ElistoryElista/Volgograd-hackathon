@@ -1,0 +1,14 @@
+[Unit]
+Description=Elistory Elista Container
+After=docker.service
+Requires=docker.service
+
+[Service]
+TimeoutStartSec=5
+Restart=always
+ExecStartPre=-/usr/bin/docker stop web-service -t 2
+ExecStartPre=-/usr/bin/docker rm web-service
+ExecStart=/usr/bin/docker run --rm --name web-service ghcr.io/oxiteam/delivery-service
+
+[Install]
+WantedBy=multi-user.target

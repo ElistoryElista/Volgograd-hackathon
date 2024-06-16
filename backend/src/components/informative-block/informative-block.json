@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_informative_block_informative_blocks",
+  "info": {
+    "displayName": "informative_block",
+    "icon": "file",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "block_links": {
+      "type": "component",
+      "repeatable": true,
+      "component": "link.link"
+    },
+    "title": {
+      "type": "string",
+      "required": false
+    },
+    "content": {
+      "type": "text",
+      "required": true
+    },
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}

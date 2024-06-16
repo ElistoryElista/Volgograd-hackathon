@@ -1,0 +1,94 @@
+{
+  "kind": "collectionType",
+  "collectionName": "events",
+  "info": {
+    "singularName": "event",
+    "pluralName": "events",
+    "displayName": "Event",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "place": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::place.place"
+    },
+    "preview_image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "schedules": {
+      "displayName": "schedules",
+      "type": "component",
+      "repeatable": true,
+      "component": "schedules.schedules",
+      "required": false
+    },
+    "hall": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::hall.hall"
+    },
+    "tickets": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::ticket.ticket",
+      "mappedBy": "event"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "кино",
+        "театр",
+        "выступление",
+        "встреча",
+        "праздник"
+      ],
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "date_delition": {
+      "type": "datetime",
+      "required": true
+    },
+    "short_description": {
+      "type": "string"
+    },
+    "is_payment_enabled": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    },
+    "website_link": {
+      "type": "component",
+      "repeatable": false,
+      "component": "link.link"
+    }
+  }
+}

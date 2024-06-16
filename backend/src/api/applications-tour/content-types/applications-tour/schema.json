@@ -1,0 +1,49 @@
+{
+  "kind": "collectionType",
+  "collectionName": "applications_tours",
+  "info": {
+    "singularName": "applications-tour",
+    "pluralName": "applications-tours",
+    "displayName": "ApplicationsTour",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "tour_id": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::tour.tour",
+      "inversedBy": "applications_tours"
+    },
+    "phone": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "total_price": {
+      "type": "float",
+      "required": true
+    },
+    "customers_count": {
+      "type": "integer",
+      "required": true,
+      "min": 1,
+      "default": 1
+    },
+    "schedule": {
+      "type": "component",
+      "repeatable": false,
+      "component": "schedules.schedules"
+    }
+  }
+}

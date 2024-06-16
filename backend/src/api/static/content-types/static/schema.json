@@ -1,0 +1,39 @@
+{
+  "kind": "singleType",
+  "collectionName": "statics",
+  "info": {
+    "singularName": "static",
+    "pluralName": "statics",
+    "displayName": "static",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "email": {
+      "type": "email"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "privacy_policy": {
+      "type": "component",
+      "repeatable": true,
+      "component": "informative-block.informative-block",
+      "required": true
+    },
+    "mobile_app_link_android": {
+      "type": "string"
+    },
+    "mobile_app_link_apple": {
+      "type": "string"
+    },
+    "use_conditions_service": {
+      "type": "component",
+      "repeatable": true,
+      "component": "informative-block.informative-block"
+    }
+  }
+}

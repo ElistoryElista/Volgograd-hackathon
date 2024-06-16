@@ -1,0 +1,10 @@
+export const SESSION_TAG = "SESSION_TAG";
+export const USER_TAG = "USER_TAG";
+export const EVENT_TAG = "EVENT_TAG";
+export const TICKETS_TAG = "TICKETS_TAG";
+export const FAVORITE_PLACES_TAG = "FAVORITE_PLACES_TAG";
+export const ARTICLES_TAG = "ARTICLES_TAG";
+export const TRIP_TAG = "TRIP_TAG";
+export const ROUTE_TAG = "ROUTE_TAG";
+export const USER_HOME_TAG = "ROUTE_HOME_TAG";
+export const INCIDENTS = "INCIDENTS";

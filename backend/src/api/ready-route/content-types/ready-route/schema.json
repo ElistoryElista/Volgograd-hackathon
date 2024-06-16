@@ -1,0 +1,54 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ready_routes",
+  "info": {
+    "singularName": "ready-route",
+    "pluralName": "ready-routes",
+    "displayName": "ReadyRoute",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": false
+    },
+    "description": {
+      "type": "text",
+      "required": false
+    },
+    "places": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::place.place"
+    },
+    "preview_image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "isVisuallyImpaired": {
+      "type": "boolean"
+    },
+    "isHearingImpaired": {
+      "type": "boolean",
+      "default": false
+    },
+    "isRestrictedInMovement": {
+      "type": "boolean"
+    },
+    "car": {
+      "type": "boolean",
+      "default": true
+    },
+    "type": {
+      "type": "string"
+    }
+  }
+}

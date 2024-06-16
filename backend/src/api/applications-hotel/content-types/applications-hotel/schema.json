@@ -1,0 +1,58 @@
+{
+  "kind": "collectionType",
+  "collectionName": "applications_hotels",
+  "info": {
+    "singularName": "applications-hotel",
+    "pluralName": "applications-hotels",
+    "displayName": "ApplicationsHotel",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "approximate_total_price": {
+      "type": "float",
+      "min": 0
+    },
+    "place_id": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::place.place"
+    },
+    "phone": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "customers_count": {
+      "type": "integer",
+      "min": 1,
+      "required": true
+    },
+    "start_date": {
+      "type": "date",
+      "required": true
+    },
+    "start_time": {
+      "type": "time",
+      "required": true
+    },
+    "end_date": {
+      "type": "date",
+      "required": true
+    },
+    "end_time": {
+      "type": "time",
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,72 @@
+version: '3'
+
+services:
+  # map:
+  #   image: overv/openstreetmap-tile-server
+  #   volumes:
+  #     - osm-data:/data/database/
+  #   ports:
+  #     - "8080:80"
+  #   command: "run"
+  # minio:
+  #   image: minio/minio
+  #   ports:
+  #     - "9000:9000"
+  #     - "9001:9001"
+  #   volumes:
+  #     - minio_storage:/data
+  #   environment:
+  #     MINIO_ROOT_USER: miniouser
+  #     MINIO_ROOT_PASSWORD: miniopass
+  #   command: server --console-address ":9001" /data
+
+  db:
+    image: postgres:14-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    volumes:
+      - db-data:/var/lib/postgresql/data
+      # - ./pg_hba.conf:/var/lib/postgresql/data/pg_hba.conf
+    ports:
+      - "5432:5432"
+    networks:
+      service_tier:
+
+  nodejs:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    environment:
+      NODE_ENV: ${NODE_ENV}
+      DATABASE_CLIENT: ${DATABASE_CLIENT}
+      DATABASE_HOST: ${DATABASE_HOST}
+      DATABASE_PORT: ${DATABASE_PORT}
+      DATABASE_NAME: ${DATABASE_NAME}
+      DATABASE_USERNAME: ${DATABASE_USERNAME}
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD}
+      DATABASE_SSL: ${DATABASE_SSL}
+    ports:
+      - "1337:1337"
+    networks:
+      service_tier:
+        aliases:
+          - remote-nodejs-app
+    depends_on:
+      - db
+      # - minio
+      # - map
+
+volumes:
+  db-data:
+  minio_storage: {}
+  # osm-data:
+  #   external: true
+
+networks:
+  service_tier:
+    name: service_tier
+  

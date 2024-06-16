@@ -1,0 +1,48 @@
+- name: install docker
+  apt:
+    name: docker-compose
+    state: present
+
+# - name: Add sudo permissions for crontab
+#   sudo:
+#     name: ansible
+#     commands: /usr/bin/crontab
+#     state: present
+
+# - name: Create letsencrypt certificate
+#     shell: letsencrypt certonly -n --webroot -w /var/www/letsencrypt -m {{ letsencrypt_email }} --agree-tos -d {{ domain_name }}
+#     args:
+#       creates: /etc/letsencrypt/live/{{ domain_name }}
+
+# - name: Reload nginx to activate specified site
+#       service: name=nginx state=restarted
+
+# - name: Create cron job for certificate renewal
+#   cron:
+#     name: "Renew SSL certificate"
+#     special_time: monthly
+#     job: "docker-compose exec certbot certbot renew --noninteractive --agree-tos"
+#     state: present
+
+- name: update repo
+  git:
+    repo: git@github.com:ElistoryElista/inclusive-Volgograd.git
+    dest: "/app/elistory-inclusive"
+    key_file: "~/.ssh/prod-deploy-key-inclusive"
+    version: main
+    accept_hostkey: yes
+
+- name: update docker image
+  shell: docker compose build
+  args:
+    chdir: "/app/elistory-inclusive"
+
+- name: stop docker compose
+  shell: pwd && docker compose stop
+  args:
+    chdir: "/app/elistory-inclusive"
+
+- name: start docker compose
+  shell: docker compose up -d
+  args:
+    chdir: "/app/elistory-inclusive"

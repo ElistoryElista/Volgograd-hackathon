@@ -1,0 +1,70 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tours",
+  "info": {
+    "singularName": "tour",
+    "pluralName": "tours",
+    "displayName": "Tour",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "preview_image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "organizational_phone": {
+      "type": "string"
+    },
+    "schedules": {
+      "type": "component",
+      "repeatable": true,
+      "component": "schedules.schedules"
+    },
+    "schedule_descriptions": {
+      "type": "component",
+      "repeatable": true,
+      "component": "tour-schedule.tour-schedule",
+      "required": true
+    },
+    "site": {
+      "type": "string"
+    },
+    "applications_tours": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::applications-tour.applications-tour",
+      "mappedBy": "tour_id"
+    }
+  }
+}

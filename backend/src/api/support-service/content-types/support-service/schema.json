@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "support_services",
+  "info": {
+    "singularName": "support-service",
+    "pluralName": "support-services",
+    "displayName": "SupportService"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "images": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "support_services"
+    },
+    "phone": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email"
+    },
+    "descriptions": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

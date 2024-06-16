@@ -1,0 +1,26 @@
+version: '3.3'
+services:
+  valhalla:
+    image: ghcr.io/gis-ops/docker-valhalla/valhalla
+    privileged: true    
+    ports:
+      - "8002:8002"
+    volumes:
+      - ./custom_files/:/custom_files
+    environment:
+      - tile_urls=https://download.geofabrik.de/russia/south-fed-district-latest.osm.pbf
+      - server_threads=4
+      - min_x=4.11
+      - min_y=4.726
+      - max_x=4.725
+      - max_y=5.114
+      - use_tiles_ignore_pbf=True
+      - force_rebuild=False
+      - force_rebuild_elevation=False
+      - build_elevation=True
+      - build_admins=True
+      - build_time_zones=True          
+    ulimits: 
+      nofile:
+        soft: 50000
+        hard: 50000

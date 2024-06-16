@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "place_tags",
+  "info": {
+    "singularName": "place-tag",
+    "pluralName": "place-tags",
+    "displayName": "PlaceTag",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "place_categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::place-category.place-category",
+      "inversedBy": "place_tags"
+    },
+    "places": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::place.place",
+      "mappedBy": "tags"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    }
+  }
+}

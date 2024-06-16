@@ -1,0 +1,27 @@
+- name: install docker
+  apt:
+    name: docker-compose
+    state: present
+
+- name: update repo
+  git:
+    repo: git@github.com:ElistoryElista/inclusive-Volgograd.git
+    dest: "/app/elistory-frontend"
+    key_file: "~/.ssh/staging-deploy-key-inclusive"
+    version: staging
+    accept_hostkey: yes
+
+- name: update docker image
+  shell: docker-compose build
+  args:
+    chdir: "/app/elistory-inclusive"
+
+- name: stop docker-compose
+  shell: pwd && docker-compose stop
+  args:
+    chdir: "/app/elistory-inclusive"
+
+- name: start docker-compose
+  shell: docker-compose up -d
+  args:
+    chdir: "/app/elistory-inclusive"

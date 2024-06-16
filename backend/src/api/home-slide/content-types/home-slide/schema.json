@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "home_slides",
+  "info": {
+    "singularName": "home-slide",
+    "pluralName": "home-slides",
+    "displayName": "HomeSlide",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "link.link"
+    },
+    "description": {
+      "type": "string"
+    },
+    "backgroundImage": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

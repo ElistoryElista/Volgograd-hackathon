@@ -1,0 +1,7 @@
+---
+
+- hosts: webserver
+  remote_user: root
+  roles:
+
+    - role: web-server

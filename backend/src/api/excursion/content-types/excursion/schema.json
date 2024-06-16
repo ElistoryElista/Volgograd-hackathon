@@ -1,0 +1,73 @@
+{
+  "kind": "collectionType",
+  "collectionName": "excursions",
+  "info": {
+    "singularName": "excursion",
+    "pluralName": "excursions",
+    "displayName": "Excursion",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "schedules": {
+      "type": "component",
+      "repeatable": true,
+      "component": "schedules.schedules"
+    },
+    "preview_image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "organizational_phone": {
+      "type": "string",
+      "required": false
+    },
+    "site": {
+      "type": "string"
+    },
+    "applications_excursions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::applications-excursion.applications-excursion",
+      "mappedBy": "excursion_id"
+    },
+    "duration": {
+      "type": "integer",
+      "required": true,
+      "min": 0
+    },
+    "description_list": {
+      "type": "component",
+      "repeatable": true,
+      "component": "list.list",
+      "required": true
+    }
+  }
+}
