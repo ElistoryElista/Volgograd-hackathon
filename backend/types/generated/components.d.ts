@@ -95,6 +95,18 @@ export interface TourScheduleTourSchedule extends Schema.Component {
   };
 }
 
+export interface TripsTrips extends Schema.Component {
+  collectionName: 'components_trips_trips';
+  info: {
+    displayName: 'trips';
+    description: '';
+  };
+  attributes: {
+    place_ids: Attribute.Text;
+    movement_method: Attribute.Enumeration<['car', 'foot']>;
+  };
+}
+
 export interface WorkTimeWorkTime extends Schema.Component {
   collectionName: 'components_work_time_work_times';
   info: {
@@ -116,6 +128,7 @@ declare module '@strapi/types' {
       'list.list': ListList;
       'schedules.schedules': SchedulesSchedules;
       'tour-schedule.tour-schedule': TourScheduleTourSchedule;
+      'trips.trips': TripsTrips;
       'work-time.work-time': WorkTimeWorkTime;
     }
   }

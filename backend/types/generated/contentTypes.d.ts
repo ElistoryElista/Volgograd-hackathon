@@ -795,11 +795,8 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
     isVisuallyImpaired: Attribute.Boolean;
     isHearingImpaired: Attribute.Boolean;
     isRestrictedInMovement: Attribute.Boolean;
-    ready_routes: Attribute.Relation<
-      'plugin::users-permissions.user',
-      'oneToMany',
-      'api::ready-route.ready-route'
-    >;
+    trips: Attribute.Component<'trips.trips', true>;
+    is_show_companions: Attribute.Boolean;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -1092,7 +1089,6 @@ export interface ApiExcursionExcursion extends Schema.CollectionType {
     email: Attribute.Email & Attribute.Required;
     schedules: Attribute.Component<'schedules.schedules', true>;
     preview_image: Attribute.Media & Attribute.Required;
-    images: Attribute.Media;
     description: Attribute.Text & Attribute.Required;
     organizational_phone: Attribute.String;
     site: Attribute.String;
@@ -1106,8 +1102,7 @@ export interface ApiExcursionExcursion extends Schema.CollectionType {
       Attribute.SetMinMax<{
         min: 0;
       }>;
-    description_list: Attribute.Component<'list.list', true> &
-      Attribute.Required;
+    subtitle: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

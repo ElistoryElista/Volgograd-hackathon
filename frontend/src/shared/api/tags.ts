@@ -8,3 +8,4 @@ export const TRIP_TAG = "TRIP_TAG";
 export const ROUTE_TAG = "ROUTE_TAG";
 export const USER_HOME_TAG = "ROUTE_HOME_TAG";
 export const INCIDENTS = "INCIDENTS";
+export const USER_TRIPS = "USER_TRIPS";

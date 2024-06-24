@@ -73,6 +73,26 @@ export const Header: React.FC<IProps> = ({}) => {
               Профиль
               {route === "profile" && <Underline />}
             </Link>
+
+            <Link
+              className={`btn-ghost btn relative uppercase ${
+                route === "companions" ? "btn-primary" : ""
+              }`}
+              to={"/companions"}
+            >
+              Компаньоны
+              {route === "companions" && <Underline />}
+            </Link>
+
+            <Link
+              className={`btn-ghost btn relative uppercase ${
+                route === "excursions" ? "btn-primary" : ""
+              }`}
+              to={"/excursions"}
+            >
+              Экскурсии
+              {route === "excursions" && <Underline />}
+            </Link>
           </ul>
         </div>
         <div className="flex-end navbar-end flex gap-2">

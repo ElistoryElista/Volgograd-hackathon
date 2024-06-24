@@ -6,6 +6,10 @@ import { ConfirmPhone } from "./confirm-phone";
 import { ForgetPassword } from "./forget-password";
 import { Profile } from "./profile";
 import { Constructor } from "./constructor";
+import { ShowRoute } from "./show-route";
+import { Excursions } from "./excursions";
+
+export * from "./companions";
 
 export {
   Home,
@@ -16,4 +20,6 @@ export {
   ForgetPassword,
   Profile,
   Constructor,
+  ShowRoute,
+  Excursions,
 };

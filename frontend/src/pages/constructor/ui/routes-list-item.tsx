@@ -4,12 +4,14 @@ import {
   CarIcon,
   EarIcon,
   EyeIcon,
+  Modal,
   WheelCharIcon,
   useAppDispatch,
   useAppSelector,
 } from "@/shared";
 import { TPlace, TReadyRoute } from "@/shared/model/types";
 import { useState } from "react";
+import { ShowRoute } from "./show-route";
 
 interface IProps {
   route: TReadyRoute;
@@ -121,6 +123,30 @@ export const RoutesListItem: React.FC<IProps> = ({ route, finishCallback }) => {
           </button>
         )}
       </div>
+      <Modal
+        content={
+          <>
+            <ShowRoute route={route} />
+            <button
+              className="btn-sm btn mt-2 w-full"
+              onClick={() => {
+                if (isAuth) {
+                  setTripPlaces(route.places.map(({ id }) => id));
+                  finishCallback();
+                } else {
+                  dispatch(changeLocalTrip(route.places));
+                  finishCallback();
+                }
+              }}
+            >
+              выбрать
+            </button>
+          </>
+        }
+      >
+        <button className="btn-sm btn w-full">показать</button>
+      </Modal>
+
       <button
         className="btn-sm btn w-full"
         onClick={() => {

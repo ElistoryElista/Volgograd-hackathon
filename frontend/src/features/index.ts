@@ -8,3 +8,4 @@ export * from "./visually-enhanced-mode";
 export * from "./create-feedback";
 export * from "./create-incident";
 export * from "./remove-trip-place";
+export * from "./toggle-show-companions";

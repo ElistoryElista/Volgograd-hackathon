@@ -31,7 +31,7 @@ export const VisuallyEnhancedSettingsMenu: React.FC<IProps> = ({}) => {
       const text = (event.target as Element).textContent;
       if (text) {
         const utterance = new SpeechSynthesisUtterance(text);
-        utterance.rate = 1.2; // Устанавливаем скорость речи
+        // utterance.rate = 1.2; // Устанавливаем скорость речи
         speechSynthesis.speak(utterance);
       }
     } else {

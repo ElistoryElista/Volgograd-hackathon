@@ -1,2 +1,3 @@
-export { TestUnauthorized } from "./ui/test-unauthorized";
-export { TestAuthorized } from "./ui/test-authtorized";
+export { UnauthorizedCheckboxes as AdditionalNeedsUnauthCheckboxes } from "./ui/unauthorized-checkboxes";
+export { AuthorizedCheckboxes as AdditionalNeedsAuthCheckboxes } from "./ui/authorized-checkboxes";
+export { TestAdditionalNeeds } from "./ui/test-additional-needs";

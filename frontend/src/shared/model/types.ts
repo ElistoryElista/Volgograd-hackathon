@@ -20,6 +20,12 @@ export type TResImage = {
   };
 };
 
+export type TSavedTrip = {
+  place_ids: string;
+  movement_method: string;
+  id: number;
+};
+
 export type TSchedule = {
   duration?: number;
   id: number;
@@ -124,6 +130,8 @@ export type TExcursion = {
   schedules: TSchedule[];
   description_list: { id: number; content: string }[];
   duration: number;
+  preview_image: TResImage;
+  subtitle: string;
 };
 
 type TScheduleDescription = {

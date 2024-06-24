@@ -1,4 +1,4 @@
-import { baseApi } from "@/shared/api";
+import { USER_TRIPS, baseApi } from "@/shared/api";
 import {
   FAVORITE_PLACES_TAG,
   ROUTE_TAG,
@@ -14,6 +14,34 @@ export const userApi = baseApi.injectEndpoints({
         method: "GET",
       }),
       providesTags: [USER_TAG],
+    }),
+    getAllUsers: build.query({
+      query: (userId: number) => ({
+        url: `/users?populate=avatar,trip_places&fields[0]=id&fields[1]=username&fields[2]=phone&fields[3]=is_show_companions&fields[4]=email&filters[is_show_companions][$eq]=true&filters[id][$ne]=${userId}`,
+        method: "GET",
+      }),
+      providesTags: [USER_TAG],
+    }),
+    getUserSavedTrips: build.query({
+      query: () => ({
+        url: `/users/me?populate=trips&fields[0]=id`,
+        method: "GET",
+      }),
+      providesTags: [USER_TRIPS],
+    }),
+    updateSavedTrips: build.mutation({
+      query: ({
+        id,
+        trips,
+      }: {
+        id: number;
+        trips: { place_ids: string; movement_method: string }[];
+      }) => ({
+        url: `/users/${id}`,
+        method: "PUT",
+        body: { trips },
+      }),
+      invalidatesTags: [USER_TRIPS],
     }),
     getFavoritePlaces: build.query({
       query: () => ({
@@ -75,6 +103,14 @@ export const userApi = baseApi.injectEndpoints({
       }),
       invalidatesTags: [USER_TAG],
     }),
+    updateIsShowCompanions: build.mutation({
+      query: ({ newState, id }: { newState: boolean; id: number }) => ({
+        url: `/users/${id}`,
+        method: "PUT",
+        body: { is_show_companions: newState },
+      }),
+      invalidatesTags: [USER_TAG],
+    }),
     updateIsVisuallyImpaired: build.mutation({
       query: ({ newState, id }: { newState: boolean; id: number }) => ({
         url: `/users/${id}`,
@@ -131,4 +167,8 @@ export const {
   useUpdateIsHearingImpairedMutation,
   useUpdateIsRestrictedInMovementMutation,
   useUpdateIsVisuallyImpairedMutation,
+  useGetUserSavedTripsQuery,
+  useUpdateSavedTripsMutation,
+  useUpdateIsShowCompanionsMutation,
+  useGetAllUsersQuery,
 } = userApi;

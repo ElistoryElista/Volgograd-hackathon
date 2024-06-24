@@ -18,3 +18,4 @@ export { InputForm } from "./input-form";
 export { InputFormWithMask } from "./input-form-with-mask";
 export { UploadImageInput } from "./upload-image-input";
 export { TextToSpeech } from "./text-to-speech";
+export { CopyButton } from "./copy-button";

@@ -33,14 +33,6 @@
         "images"
       ]
     },
-    "images": {
-      "type": "media",
-      "multiple": true,
-      "required": false,
-      "allowedTypes": [
-        "images"
-      ]
-    },
     "description": {
       "type": "text",
       "required": true
@@ -63,11 +55,8 @@
       "required": true,
       "min": 0
     },
-    "description_list": {
-      "type": "component",
-      "repeatable": true,
-      "component": "list.list",
-      "required": true
+    "subtitle": {
+      "type": "string"
     }
   }
 }

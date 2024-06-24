@@ -4,10 +4,7 @@ import {
   selectLocalTrip,
   useGetTripPlacesQuery,
 } from "@/entities";
-import {
-  TestAuthorized,
-  TestUnauthorized,
-} from "@/features/test-additional-needs";
+import { TestAdditionalNeeds } from "@/features/test-additional-needs";
 
 import { ArrowRightIcon, useAppDispatch, useAppSelector } from "@/shared";
 import { useEffect, useRef, useState } from "react";
@@ -55,14 +52,14 @@ export const CreateTripModal: React.FC<IProps> = ({}) => {
   }
 
   const authSteps = [
-    <TestAuthorized finishCallback={nextStep} />,
+    <TestAdditionalNeeds finishCallback={nextStep} />,
     <UserPositionStep callback={nextStep} />,
     <RoutesList finishCallback={finishTest} />,
   ];
 
   const unAuthSteps = [
     <LoginStep nextUnAuthCallback={nextStep} />,
-    <TestUnauthorized finishCallback={nextStep} />,
+    <TestAdditionalNeeds finishCallback={nextStep} />,
     <UserPositionStep callback={nextStep} />,
     <RoutesList finishCallback={finishTest} />,
   ];

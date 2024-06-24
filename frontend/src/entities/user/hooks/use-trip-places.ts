@@ -1,5 +1,5 @@
 import { useAppSelector } from "@/shared";
-import { selectUserId } from "..";
+import { selectUserId, useSavedTrips } from "..";
 import {
   useGetTripPlacesQuery,
   useUpdateTripPlacesMutation,
@@ -22,6 +22,7 @@ export const useTripPlaces = () => {
   const userId = useAppSelector(selectUserId);
   const isAuth = useAppSelector(selectIsAuthorized);
   const localTrip = useAppSelector(selectLocalTrip);
+  const { saveTrip } = useSavedTrips();
 
   const { tripPlacesResponse, isLoading, error } = useGetTripPlacesQuery("", {
     selectFromResult(res) {
@@ -64,6 +65,7 @@ export const useTripPlaces = () => {
   }, [tripPlacesResponse, startPosition, userPosition]);
 
   async function updateTripPlaces(newPlaceIds: number[]) {
+    if (tripPlaces && tripPlaces?.length !== 0) saveTrip(tripPlaces);
     if (newPlaceIds && userId) {
       await updateTripPlacesMutation({
         id: userId,
@@ -73,6 +75,7 @@ export const useTripPlaces = () => {
   }
 
   async function removeAllPlaces() {
+    if (tripPlaces && tripPlaces?.length !== 0) saveTrip(tripPlaces);
     await updateTripPlacesMutation({
       id: userId,
       trip_places: [],

@@ -21,7 +21,7 @@ export const TripOnMap: React.FC<IProps> = ({}) => {
     }
   }, [tripPlaces]);
 
-  console.log(tripPlaces);
+  // console.log(tripPlaces?.map(({ id }) => id));
 
   return (
     <>

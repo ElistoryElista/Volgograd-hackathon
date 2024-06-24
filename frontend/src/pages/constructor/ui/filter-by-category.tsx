@@ -16,8 +16,13 @@ export const FilterByCategory: React.FC<IProps> = ({
   setIsNothing,
   isNothing,
 }) => {
-  const [categoryFilter, setCategoryFilter] = useState<string>("");
-  const [selectedCategory, setSelectedCategory] = useState<string>();
+  const [categoryFilter, setCategoryFilter] = useState<string>(
+    "filters[$and][0][category][slug][$eq]=dostoprimechatelnosti"
+  );
+  const [selectedCategory, setSelectedCategory] = useState<string>(
+    "dostoprimechatelnosti"
+  );
+
 
   const { placesData } = useGetAllPlacesQuery(
     {

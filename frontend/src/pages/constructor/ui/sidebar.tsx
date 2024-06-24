@@ -1,14 +1,21 @@
-import { useAppSelector } from "@/shared";
+import { Modal, useAppSelector } from "@/shared";
 import { TripList } from "./trip-list";
-import { selectVisuallyImpairedMode, useTripPlaces } from "@/entities";
+import {
+  selectIsAuthorized,
+  selectVisuallyImpairedMode,
+  useTripPlaces,
+} from "@/entities";
 import { FeedbackModal } from "@/features";
 import { TakeTestAgain } from "./take-test-again";
 import { RouteMode } from "./route-mode";
+import { ShareButton } from "./share-button";
+import { UserSavedTrips } from "./user-saved-trips";
 
 interface IProps {}
 export const Sidebar: React.FC<IProps> = ({}) => {
   const isVisuallyImpaired = useAppSelector(selectVisuallyImpairedMode);
   const { tripPlaces } = useTripPlaces();
+  const isAuth = useAppSelector(selectIsAuthorized);
 
   if (tripPlaces && tripPlaces?.length !== 0)
     return (
@@ -25,6 +32,21 @@ export const Sidebar: React.FC<IProps> = ({}) => {
             <TripList />
           </div>
           <RouteMode />
+          <div className="my-2">
+            <ShareButton size="sm" />
+          </div>
+          {isAuth && (
+            <Modal
+              content={
+                <>
+                  <h2 className="title">Мои маршруты</h2>
+                  <UserSavedTrips />
+                </>
+              }
+            >
+              <button className=" btn-sm btn w-full ">Мои маршруты</button>
+            </Modal>
+          )}
           <TakeTestAgain />
           <FeedbackModal
             title="Оцените построенный маршрут"

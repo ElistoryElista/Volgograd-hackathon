@@ -6,6 +6,7 @@ import {
   UpdateEmail,
   UpdateUsername,
 } from "@/features/update-profile";
+import { UserSavedTrips } from "@/pages/constructor/ui/user-saved-trips";
 import { Modal } from "@/shared";
 import { useAppDispatch, useAppSelector } from "@/shared/hooks";
 import { formatDate } from "@/shared/lib";
@@ -35,6 +36,16 @@ export const ProfileDetails: React.FC = () => {
             Дата рождения:{" "}
             <span className="fb text-black">{formatDate(dateBirth)}</span>
           </p>
+          <Modal
+            content={
+              <>
+                <h2 className="title">Мои маршруты</h2>
+                <UserSavedTrips />
+              </>
+            }
+          >
+            <button className=" btn-sm btn w-full ">Мои маршруты</button>
+          </Modal>
         </div>
       </div>
       <div className="flex flex-col gap-2">

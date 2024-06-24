@@ -128,10 +128,14 @@
     "isRestrictedInMovement": {
       "type": "boolean"
     },
-    "ready_routes": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::ready-route.ready-route"
+    "trips": {
+      "displayName": "trips",
+      "type": "component",
+      "repeatable": true,
+      "component": "trips.trips"
+    },
+    "is_show_companions": {
+      "type": "boolean"
     }
   }
 }

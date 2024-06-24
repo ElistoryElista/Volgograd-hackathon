@@ -28,8 +28,12 @@ import EarIcon from "./ear.svg?react";
 import WheelCharIcon from "./wheel-char.svg?react";
 import CarIcon from "./car.svg?react";
 import PlusIcon from "./plus.svg?react";
+import UsersIcon from "./users.svg?react";
+import BusIcon from "./bus.svg?react";
 
 export {
+  BusIcon,
+  UsersIcon,
   PlusIcon,
   CarIcon,
   EarIcon,

@@ -1,0 +1,1 @@
+export {Page as Companions} from "./ui/Page"

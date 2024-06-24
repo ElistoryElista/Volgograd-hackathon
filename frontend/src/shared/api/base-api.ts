@@ -10,6 +10,7 @@ export const baseApi = createApi({
     tags.ROUTE_TAG,
     tags.TRIP_TAG,
     tags.INCIDENTS,
+    tags.USER_TRIPS,
   ],
   reducerPath: "api",
   baseQuery: baseQueryWithLogout,

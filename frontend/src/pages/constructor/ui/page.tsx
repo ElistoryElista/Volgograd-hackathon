@@ -18,7 +18,7 @@ export const Page: React.FC = () => {
   const { width: windowWith } = useWindowDimensions();
   const isDesktop = windowWith >= 1024;
   const [places, setPlaces] = useState<TPlace[]>([]);
-  const [isNothing, setIsNothing] = useState<boolean>(true);
+  const [isNothing, setIsNothing] = useState<boolean>(false);
 
   return (
     <div className="fixed left-0 top-0  h-full w-full">

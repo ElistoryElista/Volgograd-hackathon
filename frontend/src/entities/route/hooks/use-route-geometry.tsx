@@ -18,7 +18,10 @@ interface IIncident {
   when_delete: string;
 }
 
-export const useRouteGeometry = (tripPlaces: TPlace[]) => {
+export const useRouteGeometry = (
+  tripPlaces: TPlace[],
+  method?: "foot" | "car"
+) => {
   const localIncidentPoints = useAppSelector(selectLocalIncidentPoints);
   const { incidents } = useGetIncidentsQuery("", {
     selectFromResult: (res) => {
@@ -41,7 +44,7 @@ export const useRouteGeometry = (tripPlaces: TPlace[]) => {
   const { data: routeData } = useGetRouteByPlacesIdsQuery(
     {
       placesIds: tripPlaces?.map((place: TPlace) => place.id) || [],
-      profile: methodMovement,
+      profile: method || methodMovement,
       exclude: [...mapIncidents, ...localIncidentPoints],
     },
     {

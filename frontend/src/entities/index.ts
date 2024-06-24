@@ -7,3 +7,4 @@ export * from "./support-service";
 export * from "./route";
 export * from "./places";
 export * from "./ready-routes";
+export * from "./excursion";

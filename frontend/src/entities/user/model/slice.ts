@@ -13,6 +13,7 @@ type TUserInfo = {
   isHearingImpaired: boolean | null;
   isRestrictedInMovement: boolean | null;
   date_birth: Date | null;
+  is_show_companions: boolean | null;
 };
 
 interface IUserSliceState extends TUserInfo {
@@ -38,6 +39,7 @@ const initialState: IUserSliceState = {
   isHearingImpaired: null,
   isRestrictedInMovement: null,
   date_birth: null,
+  is_show_companions: null,
 };
 
 export const userSlice = createSlice({
@@ -63,6 +65,7 @@ export const userSlice = createSlice({
         state.isVisuallyImpaired = payload.isVisuallyImpaired;
         state.isHearingImpaired = payload.isHearingImpaired;
         state.isRestrictedInMovement = payload.isRestrictedInMovement;
+        state.is_show_companions = payload.is_show_companions;
         if (payload.avatar) {
           state.avatar = payload.avatar;
         }
@@ -97,6 +100,8 @@ export const selectHearingImpairedMode = (state: RootState) =>
   state.user.isHearingImpaired;
 export const selectRestrictedInMovementMode = (state: RootState) =>
   state.user.isRestrictedInMovement;
+export const selectIsShowCompanions = (state: RootState) =>
+  state.user.is_show_companions;
 
 export const { changeVisuallyImpairedMode, changePhoneUser } =
   userSlice.actions;

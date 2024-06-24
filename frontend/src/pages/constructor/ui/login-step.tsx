@@ -38,6 +38,8 @@ export const LoginStep: React.FC<IProps> = ({ nextUnAuthCallback }) => {
               посещения
             </li>
             <li className="ml-5">Продолжить маршрут на другом девайсе</li>
+            <li className="ml-5">Вести сразу несколько маршрутов</li>
+            <li className="ml-5">Доступ к списку возможных компаньонов</li>
           </ul>
           <Link to={"/login"} className="btn mt-2 w-full">
             Авторизоваться
@@ -78,6 +80,8 @@ export const LoginStep: React.FC<IProps> = ({ nextUnAuthCallback }) => {
               посещения
             </li>
             <li className="ml-5">Продолжить маршрут на другом девайсе</li>
+            <li className="ml-5">Вести сразу несколько маршрутов</li>
+            <li className="ml-5">Доступ к списку возможных компаньонов</li>
           </ul>
           <Link to={"/login"} className="btn mt-2 w-full">
             Авторизоваться
@@ -113,6 +117,12 @@ export const LoginStep: React.FC<IProps> = ({ nextUnAuthCallback }) => {
             </li>
             <li className="ml-5 text-error line-through">
               Продолжить маршрут на другом девайсе
+            </li>
+            <li className="ml-5 text-error line-through">
+              Вести сразу несколько маршрутов
+            </li>
+            <li className="ml-5 text-error line-through">
+              Доступ к списку возможных компаньонов
             </li>
           </ul>
           <button className="btn mt-2 w-full" onClick={nextUnAuthCallback}>

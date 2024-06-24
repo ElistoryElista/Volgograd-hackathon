@@ -9,6 +9,9 @@ import {
   ForgetPassword,
   Profile,
   Constructor,
+  ShowRoute,
+  Companions,
+  Excursions,
 } from "@/pages";
 import { Recommendation } from "@/pages/recommendation";
 import { PrivatPolicy } from "@/pages/privat-policy";
@@ -29,6 +32,9 @@ export const router = createBrowserRouter([
       { path: "recommendation", element: <Recommendation /> },
       { path: "policy", element: <PrivatPolicy /> },
       { path: "use-conditions", element: <TermsUse /> },
+      { path: "companions", element: <Companions /> },
+      { path: "shared-route/:ids/:movement", element: <ShowRoute /> },
+      { path: "excursions", element: <Excursions /> },
       {
         path: "confirm/:action",
         element: <ConfirmPhone />,
